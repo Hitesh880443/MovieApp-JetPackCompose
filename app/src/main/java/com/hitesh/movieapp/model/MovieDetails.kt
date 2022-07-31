@@ -15,7 +15,7 @@ data class MovieDetails(
     @Json(name = "directors")
     val directors: List<String?>? = null,
     @Json(name = "genre")
-    val genre: List<String?>? = null,
+    val genre: List<String>? = null,
     @Json(name = "id")
     val id: String? = null,
     @Json(name = "image")

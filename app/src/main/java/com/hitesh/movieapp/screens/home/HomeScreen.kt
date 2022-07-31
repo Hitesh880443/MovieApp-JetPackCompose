@@ -12,13 +12,11 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.hitesh.movieapp.R
 import com.hitesh.movieapp.TAG
-import com.hitesh.movieapp.components.HeaderLabel
 import com.hitesh.movieapp.components.MovieRow
 import com.hitesh.movieapp.model.Movie
 import com.hitesh.movieapp.model.TempDataHolder
@@ -30,7 +28,6 @@ fun HomeScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                backgroundColor = Color.White,
                 elevation = 4.dp,
             ) {
                 Text(
@@ -54,13 +51,10 @@ fun MainContent(navController: NavController, movieList: List<Movie>?) {
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
     ) {
-        HeaderLabel(stringResource(R.string.all_movie))
-
         movieList?.let {
             LazyColumn {
                 items(items = it) {
                     MovieRow(it) { movie ->
-                        Log.d(TAG, "MainContent: $movie")
                         navController.navigate(route = MovieScreens.DetailsScreen.name + "/${movie.id}")
                     }
                 }
